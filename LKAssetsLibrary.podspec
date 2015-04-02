@@ -10,7 +10,7 @@ ALAssetLibrary Utilities.
   s.author       = { "Hiroshi Hashiguchi" => "xcatsan@mac.com" }
   s.source       = { :git => "https://github.com/lakesoft/LKAssetsLibrary.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.requires_arc = true
 
   s.source_files = 'Classes/*'
