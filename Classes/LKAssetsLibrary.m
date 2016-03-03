@@ -38,7 +38,7 @@ NSString* const LKAssetsLibraryGroupsKey = @"LKAssetsLibraryGroupsKey";
 {
     if (self.assetsGroupType) {
         NSMutableArray* groups = @[].mutableCopy;
-        for (LKAssetsGroup* assetsGroup in self.mutableAssetsGroups) {
+        for (LKAssetsGroup* assetsGroup in [self.mutableAssetsGroups copy]) {
             if (self.assetsGroupType & assetsGroup.type) {
                 [groups addObject:assetsGroup];
             }
@@ -73,7 +73,7 @@ NSString* const LKAssetsLibraryGroupsKey = @"LKAssetsLibraryGroupsKey";
 }
 
 - (NSIndexSet*)_indexesOfGroupsWithURLs:(NSArray*)urls {
-    return [self.mutableAssetsGroups indexesOfObjectsPassingTest:^BOOL(LKAssetsGroup* group, NSUInteger idx, BOOL *stop) {
+    return [[self.mutableAssetsGroups copy] indexesOfObjectsPassingTest:^BOOL(LKAssetsGroup* group, NSUInteger idx, BOOL *stop) {
         return [urls containsObject:group.url];
     }];
 }
